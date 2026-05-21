@@ -1,0 +1,54 @@
+# ================================================================
+# Portfolio Valuation Pipeline - Configuration
+# ================================================================
+# This file documents the Databricks Lakeflow Pipeline configuration
+# for version control and reproducibility.
+# 
+# Pipeline ID: 3d745183-2f86-412d-8113-701bda843882
+# Created: 2026-05-21
+# Owner: francine.nzuzi@gmail.com
+# ================================================================
+
+name: portfolio_valuation_pipeline
+
+# Unity Catalog Configuration
+catalog: main
+schema: investment_portfolio_raw
+
+# Compute Configuration
+serverless: true
+photon: true
+
+# Pipeline Mode
+continuous: false
+development: false
+
+# Source Code
+libraries:
+  - glob:
+      include: /Workspace/Users/francine.nzuzi@gmail.com/portfolio_valuation_pipeline/transformations/**
+
+# Root Path
+root_path: /Workspace/Users/francine.nzuzi@gmail.com/portfolio_valuation_pipeline
+
+# Channel
+channel: CURRENT
+
+# ================================================================
+# Pipeline Architecture (Medallion Pattern)
+# ================================================================
+# 
+# Schemas:
+#   - main.investment_portfolio_raw       (Bronze: Raw data ingestion)
+#   - main.investment_portfolio_curated   (Silver: Cleaned & validated)
+#   - main.investment_portfolio_refined   (Gold: Aggregated & business-ready)
+# 
+# Volume:
+#   - /Volumes/main/investment_portfolio_raw/landing_files/
+# 
+# Transformation Files:
+#   - 01_bronze.py      (11 bronze tables from parquet files)
+#   - 02_silver.py      (TODO: Data cleansing & validation)
+#   - 03_gold.py  (TODO: Aggregations & metrics)
+# 
+# ================================================================
