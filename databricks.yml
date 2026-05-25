@@ -1,0 +1,27 @@
+bundle:
+  name: portfolio_valuation_pipeline
+
+variables:
+  catalog_name:
+    default: main
+  schema_name:
+    default: investment_portfolio_raw
+
+resources:
+  pipelines:
+    bronze_ingestion:
+      name: portfolio_valuation_bronze
+      catalog: ${var.catalog_name}
+      target: ${var.schema_name}
+      libraries:
+        - file:
+            path: ./transformations/bronze_ingestion_config.py
+        - file:
+            path: ./transformations/01_bronze_csv_to_dlt.py
+
+      channel: CURRENT
+      photon: true
+      serverless: true
+      development: true
+      configuration: 
+          spark.databricks.delta.properties.defaults.columnMapping.mode: name

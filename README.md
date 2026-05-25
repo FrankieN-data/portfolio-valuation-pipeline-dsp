@@ -8,7 +8,6 @@ This project demonstrates end-to-end data engineering best practices for managin
 
 * Market data (asset quotations)
 * Institutional registry (companies, assets)
-* Customer profiles
 * Financial statements from multiple providers (EquatePlus, OneView, Vanguard)
 * Tax wrapper classifications (ISA, SIPP)
 

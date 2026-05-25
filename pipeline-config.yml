@@ -26,10 +26,10 @@ development: false
 # Source Code
 libraries:
   - glob:
-      include: /Workspace/Users/francine.nzuzi@gmail.com/portfolio_valuation_pipeline/transformations/**
+      include: /Workspace/Users/francine.nzuzi@gmail.com/portfolio_valuation_pipeline-dsp/transformations/**
 
 # Root Path
-root_path: /Workspace/Users/francine.nzuzi@gmail.com/portfolio_valuation_pipeline
+root_path: /Workspace/Users/francine.nzuzi@gmail.com/portfolio_valuation_pipeline-dsp
 
 # Channel
 channel: CURRENT
@@ -47,7 +47,7 @@ channel: CURRENT
 #   - /Volumes/main/investment_portfolio_raw/landing_files/
 # 
 # Transformation Files:
-#   - 01_bronze.py      (11 bronze tables from parquet files)
+#   - 01-bronze-csv-to-dlt.py      (10 bronze tables from parquet files)
 #   - 02_silver.py      (TODO: Data cleansing & validation)
 #   - 03_gold.py  (TODO: Aggregations & metrics)
 # 
